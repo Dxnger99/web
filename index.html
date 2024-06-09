@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Bot</title>
+    <style>
+        .button {
+            border: darkred 5px;
+            color: green;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: solid;
+            display: inline-block;
+            font-size: 18px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        .button1 {
+            background-color: #179757;
+            color: white;
+        }
+        .button2{
+            background-color: blue; /* Cambiamos el color de fondo a blanco */
+            color: white; /* Cambiamos el color del texto a negro */
+            border: 2px solid black; /* Añadimos un borde negro */
+        }
+        /* Agregamos una regla de estilo para el elemento de entrada */
+        #researchType {
+            width: 300px; /* Ajusta este valor según tus necesidades */
+        }
+    </style>
+    <script>
+        var researchTypes = [
+            {"name": "Investigación Etnográfica", "description": "Se basa en la observación de un grupo o cultura y se utiliza comúnmente en el campo de la antropología."},
+            {"name": "Investigación Cualitativa", "description": "Se centra en entender los pensamientos y comportamientos de las personas a través de métodos como entrevistas y observaciones."},
+            {"name": "Investigación Evaluativa", "description": "Se utiliza para evaluar la efectividad de un programa, política o intervención."},
+            {"name": "Investigación de Mercado", "description": "Se utiliza para recopilar información sobre los consumidores y el mercado para informar las decisiones de negocio."},
+            {"name": "Investigación Comparada", "description": "Se utiliza para comparar dos o más grupos o casos en relación con una o más variables."},
+            {"name": "Investigación Participativa", "description": "Implica a los participantes en el proceso de investigación, a menudo con el objetivo de empoderar a la comunidad o mejorar las condiciones."},
+            {"name": "Expost Facto", "description": "Se utiliza para estudiar las causas y efectos de los hechos después de que han ocurrido."},
+            {"name": "Estudio de Caso", "description": "Se centra en un caso específico dentro de su contexto real."},
+            {"name": "Investigación Correlacional", "description": "Se utiliza para estudiar la relación entre dos o más variables."},
+            {"name": "Investigación Experimental", "description": "Se utiliza para determinar si una variable causa cambios en otra."},
+            {"name": "Investigación Descriptiva", "description": "Se utiliza para describir las características de una población o fenómeno."},
+            {"name": "Investigación Histórica", "description": "Se utiliza para estudiar eventos, ideas, instituciones, culturas y personas del pasado."}
+        ];
+
+        function showResearchTypes() {
+            var message = "";
+            for (var i = 0; i < researchTypes.length; i++) {
+                message += (i + 1) + ". " + researchTypes[i].name + "\n";
+            }
+            alert(message);
+        }
+
+        function showResearchType() {
+            var index = document.getElementById('researchType').value;
+            if (index > 0 && index <= researchTypes.length) {
+                alert(researchTypes[index - 1].name + ": " + researchTypes[index - 1].description);
+            } else {
+                alert("Número inválido. Por favor, ingrese un número entre 1 y " + researchTypes.length);
+            }
+        }
+    </script>
+</head>
+<body>
+    <p1><b>CHATBOT</b></p1>
+    <hr>
+    <P>
+        Consulta de los tipos de investigacion.
+    </P>
+    <button class="button button1" onclick="window.open('https://www.google.com/search?q=tipos+de+investigacion', '_blank')">
+        Más Información
+    </button>
+    <button class="button button2" onclick="showResearchTypes()">
+        Tipos de Investigación
+    </button>
+    <input type="text" id="researchType" placeholder="Ingrese el número del tipo de investigación">
+    <button class="button button2" onclick="showResearchType()">
+        Buscar
+    </button>
+</body>
+</html>
